@@ -104,22 +104,20 @@ def expand(short_url: str, service: str = "is.gd", server_timeout: int = 30):
 
 class LongUrlError(Exception):
     """
-    Raised when the long URL is invalid.
+    Raised when there is a problem with the long URL provided
     """
-
 
 class ShortUrlError(Exception):
     """
-    Raised when the short URL is invalid.
+    Raised when there was a problem with the short URL provided (for custom short URLs)
     """
-
 
 class RateLimitError(Exception):
     """
-    Raised when the rate limit is exceeded.
+    Raised when the rate limit is exceeded
     """
 
 class GenericError(Exception):
     """
-    Raised when an unknown error occurs.
+    Raised when any other error (includes potential problems with the service such as a maintenance period) occurs
     """
