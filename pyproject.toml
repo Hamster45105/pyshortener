@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pyshortener"
 version = "1.0.0"
-description = "A package to shorten URL's using the gd URL shortener"
+description = " A Python package to use the is.gd/v.gd API "
 readme = "README.md"
 authors = [{ name = "Hamster45105" }]
 license = { file = "LICENSE" }

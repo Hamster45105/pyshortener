@@ -1,5 +1,5 @@
 """
-pygd
+pyshortener
 """
 
 import json
