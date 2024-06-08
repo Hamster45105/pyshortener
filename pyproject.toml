@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyshortener"
-version = "1.0.0"
+version = "1.0.1"
 description = " A Python package to use the is.gd/v.gd API "
 readme = "README.md"
 authors = [{ name = "Hamster45105" }]
@@ -25,7 +25,7 @@ Issues = "https://github.com/Hamster45105/pyshortener/issues"
 "Pull Requests" = "https://github.com/Hamster45105/pyshortener/pulls"
 
 [tool.bumpver]
-current_version = "1.0.0"
+current_version = "1.0.1"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message = "[update] bump version {old_version} -> {new_version}"
 tag_message = "{new_version}"
