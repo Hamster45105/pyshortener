@@ -23,7 +23,7 @@ requires-python = ">=3.8"
 Homepage = "https://github.com/Hamster45105/pyshortener"
 Issues = "https://github.com/Hamster45105/pyshortener/issues"
 "Pull Requests" = "https://github.com/Hamster45105/pyshortener/pulls"
-"Documentation = "https://github.com/Hamster45105/pyshortener/blob/main/DOCS.md"
+"Documentation" = "https://github.com/Hamster45105/pyshortener/blob/main/DOCS.md"
 
 [tool.bumpver]
 current_version = "1.0.2"
