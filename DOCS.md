@@ -4,11 +4,28 @@
 
 `pyshortener` is a Python module for shortening and expanding URLs using the is.gd and v.gd services.
 
+## Install
+
+You can install `pyshortener` using pip:
+
+```bash
+pip install pyshortener
+```
+
 ## Functions
 
 ### `shorten()`
 
 Shortens a URL.
+
+```python
+import pyshortener
+
+long_url = "https://www.example.com"
+
+short_url = pyshortener.shorten(long_url, custom_short_url = "myshorturl", log_stats=True, service="v.gd", server_timeout=10)
+print(short_url)
+```
 
 #### Parameters
 
@@ -25,6 +42,15 @@ The shortened URL as a string.
 ### `expand()`
 
 Expands a shortened URL.
+
+```python
+import pyshortener
+
+shorturl = "https://is.gd/example"
+
+expanded_url = pyshortener.expand(short_url, service="v.gd", server_timeout=10)
+print(expanded)
+```
 
 #### Parameters
 
