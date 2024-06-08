@@ -73,6 +73,9 @@ def expand(short_url: str, service: str = "is.gd", server_timeout: int = 30):
         server_timeout: Server timeout in seconds. (Optional, defaults to 30)
     """
 
+    if service not in ["is.gd", "v.gd"]:
+        raise ValueError("Invalid service. Choose either 'is.gd' or 'v.gd'.")
+
     parameters = {
         "shorturl": short_url,
         "format": "json"
