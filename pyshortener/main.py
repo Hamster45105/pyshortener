@@ -2,8 +2,6 @@
 pyshortener
 """
 
-import json
-
 import requests
 
 def shorten(long_url: str,
@@ -40,8 +38,8 @@ def shorten(long_url: str,
     shortened_url = requests.get(f"https://{service}/create.php",
                                  params=parameters,
                                  timeout=server_timeout)
-
-    shortened_url = json.loads(shortened_url)
+    
+    shortened_url = shortened_url.json()
 
     if "errorcode" in shortened_url:
 
@@ -85,7 +83,7 @@ def expand(short_url: str, service: str = "is.gd", server_timeout: int = 30):
                                 params=parameters,
                                 timeout=server_timeout)
 
-    expanded_url = json.loads(expanded_url)
+    expanded_url = expanded_url.json()
 
     if "errorcode" in expanded_url:
 
