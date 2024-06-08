@@ -28,7 +28,7 @@ Issues = "https://github.com/Hamster45105/pyshortener/issues"
 [tool.bumpver]
 current_version = "1.0.3"
 version_pattern = "MAJOR.MINOR.PATCH"
-commit_message = "[update] bump version {old_version} -> {new_version}"
+commit_message = "Bump version {old_version} -> {new_version}"
 tag_message = "{new_version}"
 tag_scope = "default"
 commit = true
