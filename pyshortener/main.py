@@ -59,8 +59,7 @@ def shorten(long_url: str,
             raise GenericError(shortened_url["errormessage"])
 
     else:
-        return shortened_url
-
+        return shortened_url["shorturl"]
 
 def expand(short_url: str, service: str = "is.gd", server_timeout: int = 30):
     """Expands a shortened URL using the is.gd API.
@@ -100,7 +99,7 @@ def expand(short_url: str, service: str = "is.gd", server_timeout: int = 30):
             raise GenericError(expanded_url["errormessage"])
 
     else:
-        return expanded_url
+        return expanded_url["url"]
 
 class LongUrlError(Exception):
     """
