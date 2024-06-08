@@ -19,10 +19,23 @@ dependencies = [
 ]
 requires-python = ">=3.8"
 
-[project.optional-dependencies]
-dev = []
-
 [project.urls]
 Homepage = "https://github.com/Hamster45105/pyshortener"
 Issues = "https://github.com/Hamster45105/pyshortener/issues"
 "Pull Requests" = "https://github.com/Hamster45105/pyshortener/pulls"
+
+[tool.bumpver]
+current_version = "1.0.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "[update] bump version {old_version} -> {new_version}"
+tag_message = "{new_version}"
+tag_scope = "default"
+commit = true
+tag = true
+push = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"',
+    'version = "{version}"',
+]
