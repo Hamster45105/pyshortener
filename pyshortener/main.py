@@ -17,9 +17,9 @@ def handle_errors(response_json):
 
 def shorten(long_url: str,
             custom_short_url: str = None,
+            log_stats: bool = False,
             service: str = "is.gd",
-            server_timeout: int = 30,
-            log_stats: bool = False):
+            server_timeout: int = 30):
 
     """Shortens a URL using the is.gd API.
     
@@ -29,11 +29,12 @@ def shorten(long_url: str,
 
         custom_short_url: The custom short URL to be used. (Optional, defaults to None)
 
+        log_stats: Log statistics. (Optional, defaults to False)
+
         service: Either 'is.gd' or 'v.gd'. (Optional, defaults to 'is.gd')
 
         server_timeout: Server timeout in seconds. (Optional, defaults to 30)
 
-        log_stats: Log statistics. (Optional, defaults to False)
     """
 
     if service not in ["is.gd", "v.gd"]:
@@ -66,6 +67,7 @@ def expand(short_url: str, service: str = "is.gd", server_timeout: int = 30):
         service: Either 'is.gd' or 'v.gd'. (Optional, defaults to 'is.gd')
 
         server_timeout: Server timeout in seconds. (Optional, defaults to 30)
+        
     """
 
     if service not in ["is.gd", "v.gd"]:
