@@ -4,6 +4,17 @@ pyshortener
 
 import requests
 
+def handle_errors(response_json):
+    if "errorcode" in response_json:
+        if response_json["errorcode"] == 1:
+            raise LongUrlError(response_json["errormessage"])
+        elif response_json["errorcode"] == 2:
+            raise ShortUrlError(response_json["errormessage"])
+        elif response_json["errorcode"] == 3:
+            raise RateLimitError(response_json["errormessage"])
+        elif response_json["errorcode"] == 4:
+            raise GenericError(response_json["errormessage"])
+
 def shorten(long_url: str,
             custom_short_url: str = None,
             service: str = "is.gd",
@@ -41,25 +52,9 @@ def shorten(long_url: str,
     
     shortened_url = shortened_url.json()
 
-    if "errorcode" in shortened_url:
+    handle_errors(shortened_url)
 
-        if shortened_url["errorcode"] == 1:
-            raise LongUrlError(shortened_url["errormessage"])
-
-        elif shortened_url["errorcode"] == 2:
-            raise ShortUrlError(shortened_url["errormessage"])
-
-        elif shortened_url["errorcode"] == 3:
-            raise RateLimitError(shortened_url["errormessage"])
-
-        elif shortened_url["errorcode"] == 4:
-            raise GenericError(shortened_url["errormessage"])
-
-        else:
-            raise GenericError(shortened_url["errormessage"])
-
-    else:
-        return shortened_url["shorturl"]
+    return shortened_url["shorturl"]
 
 def expand(short_url: str, service: str = "is.gd", server_timeout: int = 30):
     """Expands a shortened URL using the is.gd API.
@@ -87,22 +82,9 @@ def expand(short_url: str, service: str = "is.gd", server_timeout: int = 30):
 
     expanded_url = expanded_url.json()
 
-    if "errorcode" in expanded_url:
+    handle_errors(expanded_url)
 
-        if expanded_url["errorcode"] == 1:
-            raise LongUrlError(expanded_url["errormessage"])
-
-        elif expanded_url["errorcode"] == 2:
-            raise ShortUrlError(expanded_url["errormessage"])
-
-        elif expanded_url["errorcode"] == 3:
-            raise RateLimitError(expanded_url["errormessage"])
-
-        else:
-            raise GenericError(expanded_url["errormessage"])
-
-    else:
-        return expanded_url["url"]
+    return expanded_url["url"]
 
 class LongUrlError(Exception):
     """
