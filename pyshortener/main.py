@@ -4,6 +4,10 @@ pyshortener
 
 import requests
 
+def validate_service(service: str):
+    if service not in ["is.gd", "v.gd"]:
+        raise ValueError("Invalid service. Choose either 'is.gd' or 'v.gd'.")
+
 def handle_errors(response_json):
     if "errorcode" in response_json:
         if response_json["errorcode"] == 1:
@@ -37,8 +41,7 @@ def shorten(long_url: str,
 
     """
 
-    if service not in ["is.gd", "v.gd"]:
-        raise ValueError("Invalid service. Choose either 'is.gd' or 'v.gd'.")
+    validate_service(service)
 
     parameters = {
         "url": long_url,
@@ -70,8 +73,7 @@ def expand(short_url: str, service: str = "is.gd", server_timeout: int = 30):
         
     """
 
-    if service not in ["is.gd", "v.gd"]:
-        raise ValueError("Invalid service. Choose either 'is.gd' or 'v.gd'.")
+    validate_service(service)
 
     parameters = {
         "shorturl": short_url,
