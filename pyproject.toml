@@ -8,7 +8,7 @@ version = "1.0.1"
 description = " A Python package to use the is.gd/v.gd API "
 readme = "README.md"
 authors = [{ name = "Hamster45105" }]
-license = { file = "LICENSE" }
+license = "MIT"
 classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
