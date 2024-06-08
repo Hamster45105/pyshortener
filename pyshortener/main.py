@@ -5,10 +5,16 @@ pyshortener
 import requests
 
 def validate_service(service: str):
+    """
+    Validates the service parameter
+    """
     if service not in ["is.gd", "v.gd"]:
         raise ValueError("Invalid service. Choose either 'is.gd' or 'v.gd'.")
 
 def handle_errors(response_json):
+    """
+    Handles errors returned by the API
+    """
     if "errorcode" in response_json:
         if response_json["errorcode"] == 1:
             raise LongUrlError(response_json["errormessage"])
@@ -25,7 +31,8 @@ def shorten(long_url: str,
             service: str = "is.gd",
             server_timeout: int = 30):
 
-    """Shortens a URL using the is.gd API.
+    """
+    Shortens a URL using the is.gd API.
     
     Parameters:
     
@@ -38,7 +45,6 @@ def shorten(long_url: str,
         service: Either 'is.gd' or 'v.gd'. (Optional, defaults to 'is.gd')
 
         server_timeout: Server timeout in seconds. (Optional, defaults to 30)
-
     """
 
     validate_service(service)
@@ -53,7 +59,7 @@ def shorten(long_url: str,
     shortened_url = requests.get(f"https://{service}/create.php",
                                  params=parameters,
                                  timeout=server_timeout)
-    
+
     shortened_url = shortened_url.json()
 
     handle_errors(shortened_url)
@@ -61,7 +67,8 @@ def shorten(long_url: str,
     return shortened_url["shorturl"]
 
 def expand(short_url: str, service: str = "is.gd", server_timeout: int = 30):
-    """Expands a shortened URL using the is.gd API.
+    """
+    Expands a shortened URL using the is.gd API.
     
     Parameters:
 
@@ -70,7 +77,6 @@ def expand(short_url: str, service: str = "is.gd", server_timeout: int = 30):
         service: Either 'is.gd' or 'v.gd'. (Optional, defaults to 'is.gd')
 
         server_timeout: Server timeout in seconds. (Optional, defaults to 30)
-        
     """
 
     validate_service(service)
@@ -107,5 +113,5 @@ class RateLimitError(Exception):
 
 class GenericError(Exception):
     """
-    Raised when any other error (includes potential problems with the service such as a maintenance period) occurs
+    Raised when any other error occurs
     """
