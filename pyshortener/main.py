@@ -158,7 +158,7 @@ def get_stats(short_url: str,
         stats = stats.json()
     except requests.exceptions.JSONDecodeError as exc:
         raise StatsDecodeError("An error occurred while decoding the JSON response.") from exc
-    
+
     return stats
 
 class LongUrlError(Exception):
