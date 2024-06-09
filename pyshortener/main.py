@@ -66,7 +66,9 @@ def shorten(long_url: str,
 
     return shortened_url["shorturl"]
 
-def expand(short_url: str, service: str = "is.gd", server_timeout: int = 30):
+def expand(short_url: str,
+           service: str = "is.gd",
+           server_timeout: int = 30):
     """
     Expands a shortened URL using the is.gd API.
     
