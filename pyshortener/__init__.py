@@ -1,1 +1,1 @@
-from .main import shorten, expand
+from .main import shorten, expand, get_stats
