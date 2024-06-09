@@ -54,7 +54,7 @@ print(expanded)
 
 #### Parameters
 
-- `short_url` (str): The shortened URL to be expanded (not including 'is.gd' or 'v.gd')
+- `short_url` (str): The shortened URL to be expanded.
 - `service` (str, optional): Either 'is.gd' or 'v.gd'. Defaults to 'is.gd'.
 - `server_timeout` (int, optional): Server timeout in seconds. Defaults to 30.
 
@@ -77,7 +77,7 @@ print(stats)
 
 #### Parameters
 
-- `short_url` (str): The shortened URL to get statistics for.
+- `short_url` (str): The shortened URL to get statistics for (not including 'is.gd' or 'v.gd').
 - `stats_type` (str): The type of statistics to retrieve.
     - 'hitsweek': Number of hits in the past week.
     - 'hitsmonth': Number of hits in the past month.
