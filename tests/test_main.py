@@ -6,6 +6,11 @@ class TestShorten(unittest.TestCase):
         url = "http://example.com"
         short_url = shorten(url)
         self.assertEqual(short_url, "https://is.gd/iKpnPV")
+    
+    def test_shorten_complicated_valid_url(self):
+        url = "https://maps.google.co.uk/maps?f=q&source=s_q&hl=en&geocode=&q=louth&sll=53.800651,-4.064941&sspn=33.219383,38.803711&ie=UTF8&hq=&hnear=Louth,+United+Kingdom&ll=53.370272,-0.004034&spn=0.064883,0.075788&z=14"
+        short_url = shorten(url)
+        self.assertEqual(short_url, "https://is.gd/kiARyX")
 
     def test_shorten_invalid_url(self):
         url = "invalid_url"
