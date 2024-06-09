@@ -23,7 +23,7 @@ import pyshortener
 
 long_url = "https://www.example.com"
 
-short_url = pyshortener.shorten(long_url, custom_short_url = "myshorturl", log_stats=True, service="v.gd", server_timeout=10)
+short_url = pyshortener.shorten(long_url, custom_short_url="myshorturl", log_stats=True, service="v.gd", server_timeout=10)
 print(short_url)
 ```
 
