@@ -98,6 +98,61 @@ def expand(short_url: str,
 
     return expanded_url["url"]
 
+def get_stats(short_url: str,
+              stats_type: str,
+              service: str = "is.gd",
+              server_timeout: int = 30):
+    """
+    Gets statistics for a shortened URL using the is.gd API.
+    
+    Parameters:
+
+        short_url: The shortened URL to get statistics for
+
+        stats_type (str): The type of statistics to retrieve. This can be one of the following:
+            - 'hitsweek': Number of hits in the past week.
+            - 'hitsmonth': Number of hits in the past month.
+            - 'hitsyear': Number of hits in the past year.
+            - 'dayofweek': Number of hits by day of the week.
+            - 'hourofday': Number of hits by hour of the day.
+            - 'country': Number of hits by country.
+            - 'browser': Number of hits by browser.
+            - 'platform': Number of hits by platform.
+
+        service: Either 'is.gd' or 'v.gd'. (Optional, defaults to 'is.gd')
+
+        server_timeout: Server timeout in seconds. (Optional, defaults to 30)
+    """
+    
+    valid_stats_types = ["hitsweek",
+                         "hitsmonth", 
+                         "hitsyear", 
+                         "dayofweek", 
+                         "hourofday", 
+                         "country", 
+                         "browser", 
+                         "platform"]
+
+    if stats_type not in valid_stats_types:
+        raise ValueError(f"Invalid stats type. Choose either {', '.join(valid_stats_types)}.")
+
+    validate_service(service)
+
+    parameters = {
+        "shorturl": short_url,
+        "url": short_url,
+        "type": stats_type,
+        "format": "json"
+    }
+
+    stats = requests.get(f"https://{service}/graphdata.php",
+                         params=parameters,
+                         timeout=server_timeout)
+
+    stats = stats.json()
+
+    return stats
+
 class LongUrlError(Exception):
     """
     Raised when there is a problem with the long URL provided

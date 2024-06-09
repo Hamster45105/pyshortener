@@ -62,6 +62,38 @@ print(expanded)
 
 The expanded URL as a string.
 
+### `get_stats()`
+
+Retrieves statistics for a shortened URL.
+
+```python
+import pyshortener
+
+short_url = "example"
+
+stats = pyshortener.get_stats(short_url, stats_type='hitsweek', service="v.gd", server_timeout=10)
+print(stats)
+```
+
+#### Parameters
+
+- `short_url` (str): The shortened URL to get statistics for.
+- `stats_type` (str): The type of statistics to retrieve.
+    - 'hitsweek': Number of hits in the past week.
+    - 'hitsmonth': Number of hits in the past month.
+    - 'hitsyear': Number of hits in the past year.
+    - 'dayofweek': Number of hits by day of the week.
+    - 'hourofday': Number of hits by hour of the day.
+    - 'country': Number of hits by country.
+    - 'browser': Number of hits by browser.
+    - 'platform': Number of hits by platform.
+- `service` (str, optional): Either 'is.gd' or 'v.gd'. Defaults to 'is.gd'.
+- `server_timeout` (int, optional): Server timeout in seconds. Defaults to 30.
+
+#### Returns
+
+A dictionary containing the requested statistics.
+
 ## Exceptions
 
 - `LongUrlError`: Raised when there is a problem with the long URL provided.
