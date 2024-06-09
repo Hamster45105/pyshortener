@@ -1,5 +1,5 @@
 import unittest
-from pyshortener.main import shorten, expand, LongUrlError
+from pyshortener.main import shorten, expand, get_stats, LongUrlError
 
 class TestShorten(unittest.TestCase):
     def test_shorten_valid_url(self):
@@ -26,6 +26,13 @@ class TestShorten(unittest.TestCase):
         short_url = "https://is.gd/iKpnPV"
         expanded_url = expand(short_url)
         self.assertEqual(expanded_url, "http://example.com")
+    
+    def test_get_stats_valid_url(self):
+        short_url = "UsQlQM"
+        stats = get_stats(short_url, 'hitsweek')
+        self.assertIsInstance(stats, dict)
+        self.assertIn('p', stats)
+        self.assertEqual(stats['p']['title'], 'Visits this week')
 
 if __name__ == "__main__":
     unittest.main()
