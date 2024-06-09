@@ -48,7 +48,7 @@ If you can't contribute code, then give the repo a star!
 
 Sure, if these two conditions are met:
 
-1. The API must have be completely free,
+1. The API must be completely free,
 2. The API must not require an API key,
 3. The API must be in English
 
