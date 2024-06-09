@@ -54,7 +54,7 @@ print(expanded)
 
 #### Parameters
 
-- `short_url` (str): The shortened URL to be expanded.
+- `short_url` (str): The shortened URL to be expanded (not including 'is.gd' or 'v.gd')
 - `service` (str, optional): Either 'is.gd' or 'v.gd'. Defaults to 'is.gd'.
 - `server_timeout` (int, optional): Server timeout in seconds. Defaults to 30.
 
