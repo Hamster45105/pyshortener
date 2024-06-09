@@ -26,7 +26,7 @@ class TestShorten(unittest.TestCase):
         short_url = "https://is.gd/iKpnPV"
         expanded_url = expand(short_url)
         self.assertEqual(expanded_url, "http://example.com")
-    
+
     def test_get_stats_valid_url(self):
         short_url = "UsQlQM"
         stats = get_stats(short_url, 'hitsweek')
