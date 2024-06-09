@@ -20,8 +20,8 @@ dependencies = [
 requires-python = ">=3.8"
 
 [project.urls]
-Homepage = "https://github.com/Hamster45105/pyshortener"
-Issues = "https://github.com/Hamster45105/pyshortener/issues"
+"Homepage" = "https://github.com/Hamster45105/pyshortener"
+"Issues" = "https://github.com/Hamster45105/pyshortener/issues"
 "Pull Requests" = "https://github.com/Hamster45105/pyshortener/pulls"
 "Documentation" = "https://github.com/Hamster45105/pyshortener/blob/main/DOCS.md"
 
