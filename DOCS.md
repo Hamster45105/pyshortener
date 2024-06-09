@@ -94,6 +94,26 @@ print(stats)
 
 A dictionary containing the requested statistics.
 
+### `check_website_status()`
+
+Checks the status of the is.gd or v.gd website.
+
+```python
+import pyshortener
+
+status = pyshortener.check_website_status(service="v.gd", server_timeout=10)
+print(status)
+```
+
+#### Parameters
+
+- `service` (str): Either 'is.gd' or 'v.gd'.
+- `server_timeout` (int, optional): Server timeout in seconds. Defaults to 30.
+
+#### Returns
+
+`True` if the website is up (HTTP status code 200), `False` otherwise.
+
 ## Exceptions
 
 - `LongUrlError`: Raised when there is a problem with the long URL provided.

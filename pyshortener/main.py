@@ -161,6 +161,27 @@ def get_stats(short_url: str,
 
     return stats
 
+def check_website_status(service: str,
+                         server_timeout: int = 30):
+    """
+    Checks the status of the is.gd or v.gd website.
+
+    Parameters:
+
+        service: Either 'is.gd' or 'v.gd'.
+
+        server_timeout: Server timeout in seconds. (Optional, defaults to 30)
+    """
+
+    validate_service(service)
+
+    response = requests.get(f"https://{service}", timeout=server_timeout)
+
+    if response.status_code == 200:
+        return True
+    else:
+        return False
+
 class LongUrlError(Exception):
     """
     Raised when there is a problem with the long URL provided
