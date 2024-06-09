@@ -123,7 +123,7 @@ def get_stats(short_url: str,
 
         server_timeout: Server timeout in seconds. (Optional, defaults to 30)
     """
-    
+
     valid_stats_types = ["hitsweek",
                          "hitsmonth", 
                          "hitsyear", 
