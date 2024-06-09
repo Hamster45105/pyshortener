@@ -152,8 +152,13 @@ def get_stats(short_url: str,
                          params=parameters,
                          timeout=server_timeout)
 
-    stats = stats.json()
-
+    try:
+        if stats.content == b'':
+            raise GenericError("A blank response was returned. Did you pass a valid short URL?")
+        stats = stats.json()
+    except requests.exceptions.JSONDecodeError as exc:
+        raise StatsDecodeError("An error occurred while decoding the JSON response.") from exc
+    
     return stats
 
 class LongUrlError(Exception):
@@ -174,4 +179,9 @@ class RateLimitError(Exception):
 class GenericError(Exception):
     """
     Raised when any other error occurs
+    """
+
+class StatsDecodeError(Exception):
+    """
+    Raised when there is an error decoding the JSON response when getting stats
     """

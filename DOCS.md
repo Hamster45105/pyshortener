@@ -100,3 +100,4 @@ A dictionary containing the requested statistics.
 - `ShortUrlError`: Raised when there was a problem with the short URL provided (for custom short URLs).
 - `RateLimitError`: Raised when the rate limit is exceeded.
 - `GenericError`: Raised when any other error (includes potential problems with the service such as a maintenance period) occurs.
+- `StatsDecodeError`: Raised when there is an error decoding the JSON response when getting stats
