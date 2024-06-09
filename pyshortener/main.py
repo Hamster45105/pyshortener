@@ -32,7 +32,7 @@ def shorten(long_url: str,
             server_timeout: int = 30):
 
     """
-    Shortens a URL using the is.gd API.
+    Shortens a URL using the is.gd/v.gd API.
     
     Parameters:
     
@@ -70,7 +70,7 @@ def expand(short_url: str,
            service: str = "is.gd",
            server_timeout: int = 30):
     """
-    Expands a shortened URL using the is.gd API.
+    Expands a shortened URL using the is.gd/v.gd API.
     
     Parameters:
 
@@ -103,7 +103,7 @@ def get_stats(short_url: str,
               service: str = "is.gd",
               server_timeout: int = 30):
     """
-    Gets statistics for a shortened URL using the is.gd API.
+    Gets statistics for a shortened URL using the is.gd/v.gd API.
     
     Parameters:
 
