@@ -24,7 +24,12 @@
 
 <br/>
 
-`pyshortener` is a Python library for interacting with the is.gd and v.gd URL shortening services. It provides functions to shorten and expand URLs using these services.
+`pyshortener` is a Python library for interacting with URL shortening services. It provides functions to shorten and expand URLs using these services.
+
+Current APIs available:
+
+- is.gd
+- v.gd
 
 ## Install
 
@@ -48,9 +53,8 @@ If you can't contribute code, then give the repo a star!
 
 Sure, if these two conditions are met:
 
-1. The API must be completely free,
-2. The API must not require an API key,
-3. The API must be in English
+1. The API must have a free forever version,
+2. The API must be in English
 
 ## License
 

@@ -2,7 +2,12 @@
 
 ## Overview
 
-`pyshortener` is a Python module for shortening and expanding URLs using the is.gd and v.gd services.
+`pyshortener` is a Python library for interacting with URL shortening services. It provides functions to shorten and expand URLs using these services.
+
+Current the following APIs are available:
+
+- is.gd
+- v.gd
 
 ## Install
 
