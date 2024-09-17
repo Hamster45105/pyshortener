@@ -128,7 +128,7 @@ def get_stats(short_url: str,
             - 'browser': Number of hits by browser.
             - 'platform': Number of hits by platform.
         
-        format_response: Whether to format the response as a CSV. (Recommended, Optional, defaults to False for compatibility with versions >= 1.1.2)
+        format_response: Whether to format the response as a CSV. (Optional, defaults to False)
             
         include_title: Whether to include the title in the CSV output. (Optional, defaults to False)
 

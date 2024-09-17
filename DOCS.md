@@ -2,7 +2,7 @@
 
 ## Overview
 
-`pyshortener` is a Python library for interacting with the `.gd` URL shortening services. It provides functions to shorten URLs, expand URLs amd view stats for shortened URLs.
+`pyshortener` is a Python library for interacting with the `.gd` URL shortening services. It provides functions to shorten URLs, expand URLs and view stats for shortened URLs.
 
 Questions related to the services themselves may be answered on the [is.gd FAQ page](https://is.gd/faq.php).
 
@@ -89,7 +89,7 @@ print(stats)
     - 'country': Number of hits by country.
     - 'browser': Number of hits by browser.
     - 'platform': Number of hits by platform.
-- `format_response`: Whether to format the response as a CSV. (Recommended, Optional, defaults to False for compatibility with versions >= 1.1.2)
+- `format_response`: Whether to format the response as a CSV. (**Recommended**, Optional, defaults to False for compatibility with versions >= 1.1.2)
 - `include_title` (bool, optional): Whether to include the title in the CSV output. Defaults to False.
 - `service` (str, optional): Either 'is.gd' or 'v.gd'. Defaults to 'is.gd'.
 - `server_timeout` (int, optional): Server timeout in seconds. Defaults to 30.

@@ -24,7 +24,7 @@
 
 <br/>
 
-`pyshortener` is a Python library for interacting with the `.gd` URL shortening services. It provides functions to shorten URLs, expand URLs amd view stats for shortened URLs.
+`pyshortener` is a Python library for interacting with the `.gd` URL shortening services. It provides functions to shorten URLs, expand URLs and view stats for shortened URLs.
 
 ## Install
 
