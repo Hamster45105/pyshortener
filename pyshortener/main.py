@@ -143,7 +143,7 @@ def get_stats(short_url: str,
 
     validate_service(service)
 
-    if short_url.startswith(("https://is.gd", "http://is.gd", "https://v.gd", "http://v.gd")):
+    if short_url.startswith(("https://is.gd", "http://is.gd", "https://v.gd", "http://v.gd", "is.gd", "v.gd")):
         short_url = short_url.split("/")[-1]
 
     parameters = {
