@@ -18,14 +18,15 @@ def handle_errors(response_json):
     Handles errors returned by the API
     """
     if "errorcode" in response_json:
+        error_message = response_json.get("errormessage", "An error occurred.")
         if response_json["errorcode"] == 1:
-            raise LongUrlError(response_json["errormessage"])
+            raise LongUrlError(error_message)
         elif response_json["errorcode"] == 2:
-            raise ShortUrlError(response_json["errormessage"])
+            raise ShortUrlError(error_message)
         elif response_json["errorcode"] == 3:
-            raise RateLimitError(response_json["errormessage"])
+            raise RateLimitError(error_message)
         elif response_json["errorcode"] == 4:
-            raise GenericError(response_json["errormessage"])
+            raise GenericError(error_message)
 
 def shorten(long_url: str,
             custom_short_url: str = None,
