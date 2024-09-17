@@ -93,7 +93,7 @@ print(stats)
     - 'country': Number of hits by country.
     - 'browser': Number of hits by browser.
     - 'platform': Number of hits by platform.
-- `format_response`: Whether to format the response as a CSV. (Optional, defaults to False)
+- `format_response` (bool, optional): Whether to format the response as a CSV. Defaults to False.
 - `include_title` (bool, optional): Whether to include the title in the CSV output. Defaults to False.
 - `service` (str, optional): Either 'is.gd' or 'v.gd'. Defaults to 'is.gd'.
 - `server_timeout` (int, optional): Server timeout in seconds. Defaults to 30.
