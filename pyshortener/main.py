@@ -1,10 +1,9 @@
 """
 pyshortener
 """
-
-import requests
 import csv
 import io
+import requests
 
 def validate_service(service: str):
     """
@@ -33,7 +32,6 @@ def shorten(long_url: str,
             log_stats: bool = False,
             service: str = "is.gd",
             server_timeout: int = 30):
-
     """
     Shortens a URL using the is.gd/v.gd API.
     
@@ -193,26 +191,16 @@ def get_stats(short_url: str,
     return output.getvalue()
 
 class LongUrlError(Exception):
-    """
-    Raised when there is a problem with the long URL provided
-    """
+    """Raised when there is a problem with the long URL provided"""
 
 class ShortUrlError(Exception):
-    """
-    Raised when there was a problem with the short URL provided (for custom short URLs)
-    """
+    """Raised when there was a problem with the short URL provided (for custom short URLs)"""
 
 class RateLimitError(Exception):
-    """
-    Raised when the rate limit is exceeded
-    """
+    """Raised when the rate limit is exceeded"""
 
 class GenericError(Exception):
-    """
-    Raised when any other error occurs
-    """
+    """Raised for generic errors"""
 
 class StatsDecodeError(Exception):
-    """
-    Raised when there is an error decoding the JSON response when getting stats
-    """
+    """Raised when there is an error decoding the stats response"""
