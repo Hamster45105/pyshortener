@@ -57,13 +57,9 @@ def shorten(long_url: str,
         "format": "json"
     }
 
-    try:
-        response = requests.get(f"https://{service}/create.php",
-                                params=parameters,
-                                timeout=server_timeout)
-        response.raise_for_status()
-    except requests.RequestException as exc:
-        raise GenericError("An error occurred while making the request.") from exc
+    response = requests.get(f"https://{service}/create.php",
+                            params=parameters,
+                            timeout=server_timeout)
 
     response_json = response.json()
     handle_errors(response_json)
@@ -92,13 +88,9 @@ def expand(short_url: str,
         "format": "json"
     }
 
-    try:
-        response = requests.get(f"https://{service}/forward.php",
-                                params=parameters,
-                                timeout=server_timeout)
-        response.raise_for_status()
-    except requests.RequestException as exc:
-        raise GenericError("An error occurred while making the request.") from exc
+    response = requests.get(f"https://{service}/forward.php",
+                            params=parameters,
+                            timeout=server_timeout)
 
     response_json = response.json()
     handle_errors(response_json)
@@ -168,13 +160,9 @@ def get_stats(short_url: str,
         raise GenericError("The short URL provided is invalid.") from exc
 
     # Make Request
-    try:
-        response = requests.get(f"https://{service}/graphdata.php",
-                                params=parameters,
-                                timeout=server_timeout)
-        response.raise_for_status()
-    except requests.RequestException as exc:
-        raise GenericError("An error occurred while making the request.") from exc
+    response = requests.get(f"https://{service}/graphdata.php",
+                            params=parameters,
+                            timeout=server_timeout)
 
     # Decode reponse
     try:
