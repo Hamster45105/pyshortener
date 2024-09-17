@@ -147,7 +147,7 @@ def get_stats(short_url: str,
                          "platform"]
 
     if stats_type not in valid_stats_types:
-        raise ValueError(f"Invalid stats type. Choose either {', '.join(valid_stats_types)}.")
+        raise ValueError(f"Invalid stats type. Choose one of the following: {', '.join(valid_stats_types)}.")
 
     validate_service(service)
 

@@ -4,7 +4,8 @@
 
 `pyshortener` is a Python library for interacting with the `.gd` URL shortening services. It provides functions to shorten URLs, expand URLs and view stats for shortened URLs.
 
-Questions related to the services themselves may be answered on the [is.gd FAQ page](https://is.gd/faq.php).
+> [!NOTE]
+> Questions related to the services themselves may be answered on the [is.gd FAQ page](https://is.gd/faq.php).
 
 ## Install
 
@@ -66,6 +67,9 @@ The expanded URL as a string.
 
 ### `get_stats()`
 
+> [!WARNING]
+> `get_stats()` is an experimental function and not officially supported by `is.gd`/`v.gd` for use by developers. May break at any time!
+
 Retrieves statistics for a shortened URL and optionally converts the results into CSV.
 
 ```python
@@ -73,7 +77,7 @@ import pyshortener
 
 short_url = "example"
 
-stats = pyshortener.get_stats(short_url, stats_type='hitsweek', service="v.gd", server_timeout=10)
+stats = pyshortener.get_stats(short_url, stats_type='hitsweek', service="v.gd", server_timeout=10, format_response=True)
 print(stats)
 ```
 
@@ -89,14 +93,14 @@ print(stats)
     - 'country': Number of hits by country.
     - 'browser': Number of hits by browser.
     - 'platform': Number of hits by platform.
-- `format_response`: Whether to format the response as a CSV. (**Recommended**, Optional, defaults to False for compatibility with versions >= 1.1.2)
+- `format_response`: Whether to format the response as a CSV. (Optional, defaults to False)
 - `include_title` (bool, optional): Whether to include the title in the CSV output. Defaults to False.
 - `service` (str, optional): Either 'is.gd' or 'v.gd'. Defaults to 'is.gd'.
 - `server_timeout` (int, optional): Server timeout in seconds. Defaults to 30.
 
 #### Returns
 
-The requested statistics in JSON (dict)/CSV (str) format. If include_title is set to True, the title will be included as the first row in the CSV.
+The requested statistics in JSON (dict) if `format_reponse` is False OR CSV (str) if `format_response` is True. If `include_title` is True, the title will be included as the first row in the CSV.
 
 ## Exceptions
 

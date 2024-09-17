@@ -12,14 +12,14 @@
 
   <br/>
 
-  <img alt="Python version" src="https://img.shields.io/pypi/pyversions/pyshortener?logo=python&logoColor=white&label=Python Version&style=for-the-badge&color=green"/>
-  <img alt="PyPI version" src="https://img.shields.io/pypi/v/pyshortener?logo=pypi&logoColor=white&style=for-the-badge&label=PyPI+Version&color=green"/>
+  <img alt="Python version" src="https://img.shields.io/pypi/pyversions/pyshortener?logo=python&logoColor=white&label=Python Version&style=for-the-badge&color=purple"/>
+  <img alt="PyPI version" src="https://img.shields.io/pypi/v/pyshortener?logo=pypi&logoColor=white&style=for-the-badge&label=PyPI+Version&color=purple"/>
   
   <br/>
 
-  <img src="https://img.shields.io/github/license/Hamster45105/pyshortener?style=for-the-badge&color=blue" alt="License LGPL-3.0" />
+  <img src="https://img.shields.io/github/license/Hamster45105/pyshortener?style=for-the-badge" alt="License LGPL-3.0" />
   <img src="https://img.shields.io/github/languages/code-size/Hamster45105/pyshortener?style=for-the-badge" alt="GitHub code size in bytes" />
-  <img src="https://img.shields.io/github/actions/workflow/status/Hamster45105/pyshortener/tests.yml?style=for-the-badge&color=blue&label=Tests" alt="Test staus" />
+  <img src="https://img.shields.io/github/actions/workflow/status/Hamster45105/pyshortener/tests.yml?style=for-the-badge&label=Tests" alt="Test staus" />
 </div>
 
 <br/>
@@ -36,8 +36,8 @@ pip install pyshortener
 
 ## Documentation
 
-Documentation is available in the [DOCS.md file](DOCS.md)
+Documentation is available in the [DOCS.md file](https://github.com/Hamster45105/pyshortener/blob/main/DOCS.md)
 
 ## License
 
-`pyshortener` is licensed under the [MIT License](https://choosealicense.com/licenses/mit/#)
+`pyshortener` is licensed under the [MIT License](https://choosealicense.com/licenses/mit/)
