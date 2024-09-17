@@ -4,6 +4,8 @@
 
 `pyshortener` is a Python library for interacting with the `.gd` URL shortening services. It provides functions to shorten URLs, expand URLs amd view stats for shortened URLs.
 
+Questions related to the services themselves may be answered on the [is.gd FAQ page](https://is.gd/faq.php).
+
 ## Install
 
 You can install `pyshortener` using pip:
