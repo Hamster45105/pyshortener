@@ -155,16 +155,23 @@ def get_stats(short_url: str,
         "format": "json"
     }
 
-    response = requests.get(f"https://{service}/graphdata.php",
-                            params=parameters,
-                            timeout=server_timeout)
-    
+    # Check if short URL is valid
     try:
         expand(short_url, service=service)
     except LongUrlError as exc:
             raise GenericError("The short URL provided is invalid.") from exc
-    
-    try:  
+
+    # Make Request
+    try:
+        response = requests.get(f"https://{service}/graphdata.php",
+                                params=parameters,
+                                timeout=server_timeout)
+        response.raise_for_status()
+    except requests.RequestException as exc:
+        raise GenericError("An error occurred while making the request.") from exc
+
+    # Decode reponse
+    try:
         stats = response.json()
     except requests.exceptions.JSONDecodeError as exc:
         raise StatsDecodeError("An error occurred while decoding the JSON response.") from exc
