@@ -96,7 +96,7 @@ print(stats)
 
 #### Returns
 
-A string containing the requested statistics in JSON/CSV format. If include_title is set to True, the title will be included as the first row in the CSV.
+The requested statistics in JSON (dict)/CSV (str) format. If include_title is set to True, the title will be included as the first row in the CSV.
 
 ## Exceptions
 
