@@ -57,15 +57,18 @@ def shorten(long_url: str,
         "format": "json"
     }
 
-    shortened_url = requests.get(f"https://{service}/create.php",
-                                 params=parameters,
-                                 timeout=server_timeout)
+    try:
+        response = requests.get(f"https://{service}/create.php",
+                                params=parameters,
+                                timeout=server_timeout)
+        response.raise_for_status()
+    except requests.RequestException as exc:
+        raise GenericError("An error occurred while making the request.") from exc
 
-    shortened_url = shortened_url.json()
+    response_json = response.json()
+    handle_errors(response_json)
 
-    handle_errors(shortened_url)
-
-    return shortened_url["shorturl"]
+    return response_json["shorturl"]
 
 def expand(short_url: str,
            service: str = "is.gd",
