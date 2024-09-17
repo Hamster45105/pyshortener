@@ -183,7 +183,7 @@ def get_stats(short_url: str,
         raise StatsDecodeError("An error occurred while decoding the JSON response.") from exc
 
     if format_response is not True:
-        return stats
+        return response
 
     # Convert JSON response to CSV format
     output = io.StringIO()
