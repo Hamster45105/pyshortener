@@ -66,7 +66,7 @@ The expanded URL as a string.
 
 ### `get_stats()`
 
-Retrieves statistics for a shortened URL.
+Retrieves statistics for a shortened URL and optionally converts the results into CSV.
 
 ```python
 import pyshortener
@@ -89,12 +89,14 @@ print(stats)
     - 'country': Number of hits by country.
     - 'browser': Number of hits by browser.
     - 'platform': Number of hits by platform.
+- `format_response`: Whether to format the response as a CSV. (Recommended, Optional, defaults to False for compatibility with versions >= 1.1.2)
+- `include_title` (bool, optional): Whether to include the title in the CSV output. Defaults to False.
 - `service` (str, optional): Either 'is.gd' or 'v.gd'. Defaults to 'is.gd'.
 - `server_timeout` (int, optional): Server timeout in seconds. Defaults to 30.
 
 #### Returns
 
-A dictionary containing the requested statistics.
+A string containing the requested statistics in JSON/CSV format. If include_title is set to True, the title will be included as the first row in the CSV.
 
 ## Exceptions
 

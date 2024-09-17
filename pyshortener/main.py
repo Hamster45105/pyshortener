@@ -3,6 +3,8 @@ pyshortener
 """
 
 import requests
+import csv
+import io
 
 def validate_service(service: str):
     """
@@ -100,6 +102,8 @@ def expand(short_url: str,
 
 def get_stats(short_url: str,
               stats_type: str,
+              include_title: bool = False,
+              format_response: bool = False,
               service: str = "is.gd",
               server_timeout: int = 30):
     """
@@ -118,6 +122,10 @@ def get_stats(short_url: str,
             - 'country': Number of hits by country.
             - 'browser': Number of hits by browser.
             - 'platform': Number of hits by platform.
+        
+        format_response: Whether to format the response as a CSV. (Recommended, Optional, defaults to False for compatibility with versions >= 1.1.2)
+            
+        include_title: Whether to include the title in the CSV output. (Optional, defaults to False)
 
         service: Either 'is.gd' or 'v.gd'. (Optional, defaults to 'is.gd')
 
@@ -148,18 +156,40 @@ def get_stats(short_url: str,
         "format": "json"
     }
 
-    stats = requests.get(f"https://{service}/graphdata.php",
-                         params=parameters,
-                         timeout=server_timeout)
-
+    response = requests.get(f"https://{service}/graphdata.php",
+                            params=parameters,
+                            timeout=server_timeout)
+    
     try:
-        if stats.content == b'':
-            raise GenericError("A blank response was returned. Did you pass a valid short URL?")
-        stats = stats.json()
+        expand(short_url, service=service)
+    except LongUrlError as exc:
+            raise GenericError("The short URL provided is invalid.") from exc
+    
+    try:  
+        stats = response.json()
     except requests.exceptions.JSONDecodeError as exc:
         raise StatsDecodeError("An error occurred while decoding the JSON response.") from exc
 
-    return stats
+    if format_response is not True:
+        return stats
+
+    # Convert JSON response to CSV format
+    output = io.StringIO()
+    writer = csv.writer(output)
+
+    # Write title if include_title is True
+    if include_title and 'title' in stats.get('p', {}):
+        writer.writerow([stats['p']['title']])
+
+    # Write CSV header
+    header = [col['label'] for col in stats['cols']]
+    writer.writerow(header)
+
+    # Write CSV data
+    for row in stats['rows']:
+        writer.writerow([cell['v'] for cell in row['c']])
+
+    return output.getvalue()
 
 class LongUrlError(Exception):
     """
