@@ -92,15 +92,18 @@ def expand(short_url: str,
         "format": "json"
     }
 
-    expanded_url = requests.get(f"https://{service}/forward.php",
+    try:
+        response = requests.get(f"https://{service}/forward.php",
                                 params=parameters,
                                 timeout=server_timeout)
+        response.raise_for_status()
+    except requests.RequestException as exc:
+        raise GenericError("An error occurred while making the request.") from exc
 
-    expanded_url = expanded_url.json()
+    response_json = response.json()
+    handle_errors(response_json)
 
-    handle_errors(expanded_url)
-
-    return expanded_url["url"]
+    return response_json["url"]
 
 def get_stats(short_url: str,
               stats_type: str,
@@ -162,7 +165,7 @@ def get_stats(short_url: str,
     try:
         expand(short_url, service=service)
     except LongUrlError as exc:
-            raise GenericError("The short URL provided is invalid.") from exc
+        raise GenericError("The short URL provided is invalid.") from exc
 
     # Make Request
     try:
