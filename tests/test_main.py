@@ -1,5 +1,5 @@
 import unittest
-from pyshortener.main import shorten, expand, get_stats, LongUrlError, GenericError
+from pyshortener.main import shorten, expand, get_stats, LongUrlError
 
 class TestShorten(unittest.TestCase):
     def test_shorten_valid_url(self):
@@ -42,7 +42,7 @@ class TestShorten(unittest.TestCase):
 
     def test_get_stats_invalid_url(self):
         short_url = "invalid_url"
-        with self.assertRaises(GenericError):
+        with self.assertRaises(LongUrlError):
             get_stats(short_url, 'hitsweek', format_response=True)
 
     def test_get_stats_invalid_stats_type(self):
