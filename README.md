@@ -12,7 +12,7 @@
 
   <br/>
 
-  <img alt="Python version" src="https://img.shields.io/pypi/pyversions/pyshortener?logo=python&logoColor=white&label=Python Version&style=for-the-badge&color=purple"/>
+  <img alt="Python version" src="https://img.shields.io/pypi/pyversions/pyshortener?logo=python&logoColor=white&label=Python Versions&style=for-the-badge&color=purple"/>
   <img alt="PyPI version" src="https://img.shields.io/pypi/v/pyshortener?logo=pypi&logoColor=white&style=for-the-badge&label=PyPI+Version&color=purple"/>
   
   <br/>
