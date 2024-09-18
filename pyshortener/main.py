@@ -156,10 +156,7 @@ def get_stats(short_url: str,
     }
 
     # Check if short URL is valid
-    try:
-        expand(short_url, service=service)
-    except LongUrlError as exc:
-        raise GenericError("The short URL provided is invalid.") from exc
+    expand(short_url, service=service)
 
     # Make Request
     response = requests.get(f"https://{service}/graphdata.php",
