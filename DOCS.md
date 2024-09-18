@@ -102,6 +102,10 @@ print(stats)
 
 The requested statistics in JSON (dict) if `format_reponse` is False OR CSV (str) if `format_response` is True. If `include_title` is True, the title will be included as the first row in the CSV.
 
+> [!IMPORTANT]
+> It is not possible to know if a link has been set up to log stats. 
+> As such, if the link you are requesting stats for has not been set up to log stats there will be no error, just blank data.
+
 ## Exceptions
 
 - `LongUrlError`: Raised when there is a problem with the long URL provided.
