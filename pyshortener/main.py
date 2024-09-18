@@ -2,6 +2,7 @@
 pyshortener
 """
 import csv
+import re
 import io
 import requests
 
@@ -143,7 +144,8 @@ def get_stats(short_url: str,
 
     validate_service(service)
 
-    if short_url.startswith(("https://is.gd", "http://is.gd", "https://v.gd", "http://v.gd", "is.gd", "v.gd")):
+    pattern = r"^(https?://|www\.)?(is\.gd|v\.gd)"
+    if re.match(pattern, short_url):
         short_url = short_url.split("/")[-1]
 
     parameters = {
