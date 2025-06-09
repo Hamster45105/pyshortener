@@ -27,7 +27,7 @@ classifiers = [
 ]
 keywords = ["url shortener", "is.gd", "v.gd"]
 dependencies = [
-    "requests==2.32.3",
+    "requests==2.32.4",
 ]
 requires-python = ">=3.8"
 
